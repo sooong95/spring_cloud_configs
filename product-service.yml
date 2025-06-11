@@ -1,0 +1,9 @@
+spring:
+  kafka:
+    kafka-server: localhost:9092
+    consumer:
+      # group id 는 컨슈머 그룹을 식별하는 ID 로서, 동일한 그룹 ID 를 가진 컨슈머들은, 메시지를 분담해서 consume 한다.
+      # 만약 여러 컨슈머가 서로 다른 group-id 를 가지고 한 topic 을 리슨하면, 각각 메시지를 수신하여 메시지 전파 효과가 발생.
+      group-id: product-group
+      # kafka 내에 들어와있는 메시지 중에 처음 들어와 있는 메시지부터 읽기 시작(latest: 현시점 이후로 들어오는 메시지만 read)
+      auto-offset-reset: earliest
